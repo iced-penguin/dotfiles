@@ -37,6 +37,44 @@ function cdroot() {
   fi
 }
 
+
+########################################
+# prompt
+########################################
+
+RPROMPT=''
+
+# vcs_info document
+# https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Configuration-1
+# vcs_info examples
+# https://github.com/zsh-users/zsh/blob/f9e9dce5443f323b340303596406f9d3ce11d23a/Misc/vcs_info-examples#L155-L170
+
+autoload -Uz vcs_info
+setopt prompt_subst
+
+# %c, %u を有効化
+zstyle ':vcs_info:git:*' check-for-changes true
+# 未コミットのファイルがあれば表示
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}+"
+# 未ステージングのファイルがあれば表示
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}!"
+# フォーマット %c: 見コミッt, %u: 未ステージング, %b: ブランチ名
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+
+precmd () { vcs_info }
+PROMPT='
+[%F{cyan}%~%f] ${vcs_info_msg_0_}
+%B%(?,%F{green}:)%f,%F{yellow}:(%f)%b '
+
+# 未追跡ファイルがあれば表示
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+
++vi-git-untracked(){
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+    git status --porcelain | grep '??' &> /dev/null ; then
+      hook_com[staged]+='%F{red}?'
+  fi
+}
 ########################################
 # completion
 ########################################
@@ -82,30 +120,6 @@ alias vv="vi $HOME/dotfiles/vim/.vimrc"
 # git
 
 alias gs="git status"
-
-########################################
-# powerline shell
-########################################
-
-function powerline_precmd() {
-# customized prompt
-    PS1="
-$(powerline-shell --shell zsh $?)
-$ "
-}
-
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
 
 ########################################
 # colors
