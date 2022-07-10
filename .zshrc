@@ -62,6 +62,8 @@ zstyle ':vcs_info:git:*' unstagedstr "%F{red}!"
 zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 
 precmd () { vcs_info }
+# NOTE: ダブルクォートで囲むと.zshrc読み込み時に変数が展開されるので、
+# PROMPTはプロンプト表示のたびに展開されるようシングルクォートで囲む
 PROMPT='
 [%F{cyan}%~%f] ${vcs_info_msg_0_}
 %B%(?,%F{green}:)%f,%F{yellow}:(%f)%b '
