@@ -111,13 +111,8 @@ alias showcolors='for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%1
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs &'
 alias vi='nvim'
 alias python='python3'
-
-# dotfiles
-
-alias cdd="cd $HOME/dotfiles"
-alias vz="vi $HOME/dotfiles/.zshrc"
-alias sz="source $HOME/dotfiles/.zshrc"
-alias vv="vi $HOME/dotfiles/vim/.vimrc"
+alias c='pbcopy'
+alias p='pbpaste'
 
 # git
 
