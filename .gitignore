@@ -1,0 +1,9 @@
+# 全てのファイルを無視
+*
+
+# ホワイトリスト
+!.gitignore
+
+!zsh/
+!zsh/.zshenv
+!zsh/.zshrc
