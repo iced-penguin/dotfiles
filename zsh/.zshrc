@@ -39,7 +39,7 @@ alias sz="source $XDG_CONFIG_HOME/zsh/.zshrc"
 ##################################################
 
 # GHCUP
-[ -f "/Users/yuta/.ghcup/env" ] && source "/Users/yuta/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 # Volta 
 export VOLTA_HOME="$HOME/.volta"
@@ -55,5 +55,5 @@ eval "$(sheldon source)"
 export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/yuta/.sdkman"
-[[ -s "/Users/yuta/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/yuta/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
