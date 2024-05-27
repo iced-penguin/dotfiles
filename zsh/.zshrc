@@ -22,6 +22,8 @@ cdroot() {
 # Aliases
 ##################################################
 
+alias vi='nvim'
+
 alias ls='ls -FG'
 alias ll='ls -l'
 alias la='ls -a'
@@ -31,7 +33,7 @@ alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
 
-alias vz="vi $XDG_CONFIG_HOME/zsh/.zshrc"
+alias vz="nvim $XDG_CONFIG_HOME/zsh/.zshrc"
 alias sz="source $XDG_CONFIG_HOME/zsh/.zshrc"
 
 ##################################################
