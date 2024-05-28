@@ -8,6 +8,9 @@
 !zsh/.zshenv
 !zsh/.zshrc
 
+!sheldon/
+!sheldon/plugins.toml
+
 !nvim/
 !nvim/**/
 !nvim/**/*.lua
