@@ -11,3 +11,5 @@
 !nvim/
 !nvim/**/
 !nvim/**/*.lua
+
+!startship.toml
