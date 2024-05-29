@@ -15,4 +15,7 @@
 !nvim/**/
 !nvim/**/*.lua
 
+!wezterm/
+!wezterm/wezterm.lua
+
 !startship.toml
