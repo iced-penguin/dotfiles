@@ -4,6 +4,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 # Path
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # history
 # 履歴ファイルの保存先
